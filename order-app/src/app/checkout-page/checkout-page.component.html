@@ -1,0 +1,33 @@
+<div *ngIf="showCartEmpty" class="noitem">There are no Orders in cart</div>
+<div *ngIf="!showCheckout" class="row">
+    <div class="col-sm-2" *ngFor=" let items of addedItems">
+  <div class="card">
+      <div class="card-body cart-item">
+        <h5 class="card-title">Product: {{items.name}}</h5>
+        <p class="card-text">Price: {{items.price}} Rs</p>
+        
+        <button type="button" class="btn btn-primary" (click)="removefromCart(items)">-</button>
+        <p class="card-text">Quantity: {{items.qty}}</p>
+        <button type="button" class="btn btn-primary" (click)="updateCart(items)">+</button>
+      </div>
+      
+    </div>
+    </div>
+  </div>
+
+  <div *ngIf="!showCheckout" class="row" style="margin: 5em;">
+    <div class="col-sm-12" *ngIf="!showCartEmpty">
+  <div class="card">
+      <div class="card-body cart-item-summary">
+        <h5 class="card-title">Total items: {{itemCount}}</h5>
+        <p class="card-text">Total amount: {{totalamount}} Rs</p>
+        <button type="button" class="btn btn-primary" (click)="checkout()">Proceed to checkout</button>
+      </div>
+      
+    </div>
+    </div>
+  </div>
+  
+
+
+  

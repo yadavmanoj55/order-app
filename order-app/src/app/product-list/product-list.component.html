@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-sm-4" *ngFor=" let product of productsList">
+<div class="card">
+    <img class="card-img-top productimage" src='{{ "../../assets/images/" + product.id + ".jpg" }}'>
+    <div class="card-body" style="text-align: center;">
+      <h5 class="card-title">{{product.name}}</h5>
+      <p class="card-text">{{product.description}}</p>
+      <p class="card-text">{{product.price}} Rs</p>
+      <button type="button" class="btn btn-primary" (click)="addtocart(product)">Add to cart</button>
+    </div>
+    
+  </div>
+  </div>
+</div>
+
+<div class="modal" [style.display]="showModal ? 'block' : 'none'">
+  <div class="modal-dialog">
+    <div class="modal-content">
+     <div class="modal-header">
+        <h5 class="modal-title ">Info</h5>
+        <button type="button" class="close" (click)="closeModal()">
+            <span aria-hidden="true" >&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p> Added to cart sucessfully.</p>
+      </div>
+    </div>
+  </div>
+</div>

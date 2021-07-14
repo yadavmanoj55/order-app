@@ -1,0 +1,29 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand active" href="#">Home</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <!-- <li class="active"><a href="#">Home</a></li> -->
+        <li><a routerLink="products">View Products</a></li>
+        <li><a routerLink="orderstock">Add/Delete Products</a></li>
+        <li><a routerLink="checkout">Cart</a></li>
+        <li *ngIf="this.count > 0" style="padding-top: 1em;">{{count}}</li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div  class="row">
+    <div class="col-sm-12">
+  <div class="card" *ngIf="isstillOnHomePage()">
+      <img class="card-img-top productimage" src= "../../assets/images/home_page.jpg" >
+      <!-- <div class="card-body" style="text-align: center;">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text">{{product.description}}</p>
+        <button type="button" class="btn btn-primary" (click)="addtocart(product)">Add to cart</button>
+      </div> -->
+      
+    </div>
+    </div>
+  </div>

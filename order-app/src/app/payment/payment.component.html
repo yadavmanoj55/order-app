@@ -1,0 +1,70 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm)" novalidate>
+    <div class="form-group row form-align">
+        <label for="name" class="col-sm-2 col-form-label">Name:</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control" id="name" formControlName="name" placeholder="name">
+        </div>
+      </div>
+      <div *ngIf="f.name.touched && f.name.invalid" class="text-danger validation-align">
+        <div *ngIf="f.name.errors?.required">name  is required.</div>
+      </div>
+    <div class="form-group row form-align">
+      <label for="address" class="col-sm-2 col-form-label">Address:</label>
+      <div class="col-sm-5">
+        <input type="text" class="form-control" id="address" formControlName="address" placeholder="address">
+      </div>
+    </div>
+    <div *ngIf="f.address.touched && f.address.invalid" class="text-danger validation-align">
+      <div *ngIf="f.address.errors?.required">address  is required.</div>
+    </div>
+    <div class="form-group row form-align">
+      <label for="pincode" class="col-sm-2 col-form-label">Pincode:</label>
+      <div class="col-sm-5">
+        <input type="text" class="form-control" id="pincode" formControlName="pincode" placeholder="pincode">
+      </div>
+    </div>
+    <div *ngIf="f.pincode.touched && f.pincode.invalid" class="text-danger validation-align">
+        <div *ngIf="f.pincode.errors?.required">pincode is required.</div>
+        <div *ngIf="f.pincode.errors?.pattern">Enter only number.</div>
+      </div>
+    <div class="form-group row form-align">
+      <label for="phone" class="col-sm-2 col-form-label">Phone:</label>
+      <div class="col-sm-5">
+        <input type="text" class="form-control" id="phone" formControlName="phone" placeholder="phone">
+      </div>
+    </div>
+    <div *ngIf="f.phone.touched && f.phone.invalid" class="text-danger validation-align">
+      <div *ngIf="f.phone.errors?.required">phone is required.</div>
+      <div *ngIf="f.phone.errors?.pattern">Enter only number.</div>
+    </div>
+    <div class="form-group row form-align">
+      <label for="landmark" class="col-sm-2 col-form-label">landmark:</label>
+      <div class="col-sm-5">
+        <input type="text" class="form-control" formControlName="landmark" id="landmark" placeholder="landmark">
+      </div>
+    </div>
+    
+   
+    <div class="form-group row form-align">
+      <div class="col-sm-5">
+        <button type="submit" [disabled]="this.userForm.invalid" class="btn btn-primary mb-2">Place Order</button>
+      </div>
+    </div>
+  </form>
+
+
+  <div class="modal" [style.display]="showModal ? 'block' : 'none'">
+    <div class="modal-dialog">
+      <div class="modal-content">
+       <div class="modal-header">
+          <h5 class="modal-title ">Info</h5>
+          <button type="button" class="close" (click)="closeModal()">
+              <span aria-hidden="true" >&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p> Order placed sucessfully.</p>
+        </div>
+      </div>
+    </div>
+  </div>

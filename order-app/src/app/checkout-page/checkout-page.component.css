@@ -1,0 +1,21 @@
+.noitem {
+    text-align: center;
+    background-color: darkgrey;
+    
+}
+
+
+.cart-item {
+    text-align: center;
+    background-color: darkgrey;
+    margin-left: 3em;
+    height: 12em
+}
+
+.cart-item-summary {
+    text-align: center;
+    background-color: #64886f;
+    margin-left: 3em;
+    height: 12em;
+    padding-top: 2em;
+}

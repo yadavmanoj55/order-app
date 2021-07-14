@@ -1,0 +1,83 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit(productForm)" novalidate>
+  <div class="form-group row form-align">
+    <label for="id" class="col-sm-2 col-form-label">ID:</label>
+    <div class="col-sm-5">
+      <input type="text" readonly class="form-control" id="id" formControlName="id" value={{newId}}>
+    </div>
+  </div>
+  <div class="form-group row form-align">
+    <label for="prdname" class="col-sm-2 col-form-label">Product Name:</label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="prdname" formControlName="prdname" placeholder="Product Name">
+    </div>
+  </div>
+  <div *ngIf="f.prdname.touched && f.prdname.invalid" class="text-danger validation-align">
+    <div *ngIf="f.prdname.errors?.required">Product Name is required.</div>
+    <div *ngIf="f.prdname.errors?.maxlength">Product Name is too long.</div>
+  </div>
+  <div class="form-group row form-align">
+    <label for="description" class="col-sm-2 col-form-label">Description:</label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="description" formControlName="description" placeholder="description">
+    </div>
+  </div>
+  <div *ngIf="f.description.touched && f.description.invalid" class="text-danger validation-align">
+    <div *ngIf="f.description.errors?.required">Description is required.</div>
+    <div *ngIf="f.description.errors?.maxlength">Description is too long.</div>
+  </div>
+  <div class="form-group row form-align">
+    <label for="Price" class="col-sm-2 col-form-label">Price:</label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="Price" formControlName="Price" placeholder="Price">
+    </div>
+  </div>
+  <div *ngIf="f.Price.touched && f.Price.invalid" class="text-danger validation-align">
+    <div *ngIf="f.Price.errors?.required">Price is required.</div>
+    <div *ngIf="f.Price.errors?.pattern">Enter only number.</div>
+  </div>
+  <div class="form-group row form-align">
+    <label for="Quantity" class="col-sm-2 col-form-label">Minimum Quantity:</label>
+    <div class="col-sm-5">
+      <input type="text" readonly class="form-control" formControlName="Quantity" id="Quantity" value=1>
+    </div>
+  </div>
+  <div class="form-group row form-align">
+    <label for="totalqty" class="col-sm-2 col-form-label">Total Qty:</label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="totalqty" formControlName="totalqty" placeholder="totalqty">
+    </div>
+  </div>
+  <div *ngIf="f.totalqty.touched && f.totalqty.invalid" class="text-danger validation-align">
+    <div *ngIf="f.totalqty.errors?.required">Total Qty is required.</div>
+    <div *ngIf="f.totalqty.errors?.pattern">Enter only number.</div>
+  </div>
+  <div class="form-group row form-align">
+    <label for="imgsrc" class="col-sm-2 col-form-label">Image Source:</label>
+    <div class="col-sm-5">
+      <input type="text" class="form-control" id="imgsrc" formControlName="imgsrc" placeholder="imgsrc">
+    </div>
+  </div>
+  <div class="form-group row form-align">
+    <div class="col-sm-5">
+      <button type="submit" [disabled]="this.productForm.invalid" class="btn btn-primary mb-2">Add Product</button>
+    </div>
+  </div>
+</form>
+
+
+
+<div class="modal" [style.display]="showModal ? 'block' : 'none'">
+  <div class="modal-dialog">
+    <div class="modal-content">
+     <div class="modal-header">
+        <h5 class="modal-title ">Info</h5>
+        <button type="button" class="close" (click)="closeModal()">
+            <span aria-hidden="true" >&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Product added sucessfully.</p>
+      </div>
+    </div>
+  </div>
+</div>
