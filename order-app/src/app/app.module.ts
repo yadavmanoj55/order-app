@@ -14,13 +14,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes =[
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'products', component: ProductListComponent},
   {path: 'orderstock', component: OrderStockComponent},
   {path: 'checkout', component: CheckoutPageComponent},
   {path: 'payment', component: PaymentComponent}
-  
 ]
 
 @NgModule({
