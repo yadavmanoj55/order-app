@@ -47,7 +47,7 @@
    
     <div class="form-group row form-align">
       <div class="col-sm-5">
-        <button type="submit" [disabled]="this.userForm.invalid" class="btn btn-primary mb-2">Place Order</button>
+        <button type="submit" [disabled]="this.userForm.invalid || this.orderservice.orderCount == 0" class="btn btn-primary mb-2">Place Order</button>
       </div>
     </div>
   </form>
