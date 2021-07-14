@@ -21,7 +21,7 @@ export class PaymentComponent implements OnInit {
   }); 
   
   
-  constructor(private router: Router, private orderservice: OrderServiceService) { }
+  constructor(private router: Router, public orderservice: OrderServiceService) { }
 
   ngOnInit(): void {
   }
@@ -39,7 +39,6 @@ export class PaymentComponent implements OnInit {
    closeModal(){
     this.showModal = false;
     this.orderservice.resetCart();
-    
-    this.router.navigateByUrl('home');
+    this.userForm.reset();
   }
 }
